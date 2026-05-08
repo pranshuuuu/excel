@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Advanced Excel & PowerPoint — Complete Exam Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #0f1117;
+    --surface: #181c27;
+    --card: #1e2333;
+    --border: #2a3045;
+    --accent-blue: #4f8ef7;
+    --accent-green: #3ecf8e;
+    --accent-amber: #f59e0b;
+    --accent-coral: #f87171;
+    --accent-purple: #a78bfa;
+    --text-primary: #e8eaf0;
+    --text-secondary: #8892aa;
+    --text-muted: #4a5568;
+    --code-bg: #0d1117;
+    --mark5: #1a2e1a;
+    --mark5-border: #3ecf8e;
+    --mark8: #2a1f0a;
+    --mark8-border: #f59e0b;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .header {
+    background: linear-gradient(135deg, #1e2333 0%, #0f1117 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 2.5rem 2rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header h1 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.3px;
+  }
+
+  .header p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .tabs-wrap {
+    display: flex;
+    gap: 6px;
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  .tab-btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+
+  .tab-btn:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+  .tab-btn.active { background: var(--accent-blue); color: #fff; border-color: var(--accent-blue); }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+  .module-section { display: none; }
+  .module-section.active { display: block; }
+
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .module-icon {
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .module-icon.excel { background: #1a2e1a; color: var(--accent-green); }
+  .module-icon.ppt { background: #2a1a1a; color: var(--accent-coral); }
+  .module-icon.adv { background: #1a1e2e; color: var(--accent-blue); }
+
+  .module-header h2 { font-size: 20px; font-weight: 600; }
+  .module-header p { font-size: 13px; color: var(--text-secondary); }
+
+  .q-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+
+  .q-header {
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .q-header:hover { background: rgba(255,255,255,0.02); }
+
+  .q-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    flex: 1;
+  }
+
+  .q-meta { display: flex; gap: 6px; align-items: center; flex-shrink: 0; }
+
+  .badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 5px;
+    letter-spacing: 0.02em;
+  }
+
+  .b5 { background: var(--mark5); color: var(--accent-green); border: 1px solid var(--mark5-border); }
+  .b8 { background: var(--mark8); color: var(--accent-amber); border: 1px solid var(--mark8-border); }
+  .bhot { background: #2a1a1a; color: var(--accent-coral); border: 1px solid var(--accent-coral); }
+
+  .chevron {
+    color: var(--text-muted);
+    font-size: 16px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .q-card.open .chevron { transform: rotate(180deg); }
+
+  .q-body {
+    display: none;
+    padding: 0 1.25rem 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .q-card.open .q-body { display: block; }
+
+  .answer-section { margin-top: 1rem; }
+
+  .answer-section h4 {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+  }
+
+  .answer-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .answer-text strong { color: var(--text-primary); font-weight: 500; }
+
+  .step-list { list-style: none; margin: 0.5rem 0; }
+  .step-list li {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    align-items: flex-start;
+  }
+
+  .step-num {
+    background: var(--accent-blue);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  .code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: #7dd3fc;
+    margin: 8px 0;
+    overflow-x: auto;
+    white-space: pre;
+  }
+
+  .tip-box {
+    background: #1a1e2e;
+    border-left: 3px solid var(--accent-blue);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  .tip-box strong { color: var(--accent-blue); }
+
+  .score-box {
+    background: #1a2e1a;
+    border-left: 3px solid var(--accent-green);
+    border-radius: 0 6px 6px 0;
+    padding: 10px 14px;
+    margin: 10px 0;
+    font-size: 13px;
+    color: #6ee7b7;
+  }
+
+  .score-box strong { color: var(--accent-green); }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 10px 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 13px;
+  }
+
+  th {
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+
+  td {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+
+  td strong { color: var(--text-primary); }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 1rem 0;
+  }
+
+  .point-list { margin: 0.5rem 0 0 0; }
+  .point-list li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    padding-left: 16px;
+    position: relative;
+  }
+  .point-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-size: 12px;
+  }
+
+  .scenario-badge {
+    background: #2a1a1a;
+    border: 1px solid var(--accent-coral);
+    color: var(--accent-coral);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 5px;
+  }
+
+  .part-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-amber);
+    margin: 1rem 0 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .part-label::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 14px;
+    background: var(--accent-amber);
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>📚 Advanced Excel & PowerPoint — Exam Study Guide</h1>
+  <p>All modules · Full answers · Steps & examples · Score full marks</p>
+  <div class="tabs-wrap">
+    <button class="tab-btn active" onclick="showModule('m1')">Module I — Excel Intro</button>
+    <button class="tab-btn" onclick="showModule('m2')">Module II — PPT Intro</button>
+    <button class="tab-btn" onclick="showModule('m3')">Module III — Excel Expert</button>
+    <button class="tab-btn" onclick="showModule('m4')">Module IV — PPT Expert</button>
+    <button class="tab-btn" onclick="showModule('m5')">Module V — Adv Excel</button>
+    <button class="tab-btn" onclick="showModule('m6')">Module VI — Adv PPT</button>
+    <button class="tab-btn" onclick="showModule('scenario')">🎯 Scenario (14 marks)</button>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- ===== MODULE I ===== -->
+<div id="m1" class="module-section active">
+  <div class="module-header">
+    <div class="module-icon excel">I</div>
+    <div>
+      <h2>Module I — Introduction to MS Excel</h2>
+      <p>Interface · Formulas · Formatting · Printing · Workbook Management</p>
+    </div>
+  </div>
+
+  <!-- Q1 5-mark -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q1. Explain the Microsoft Excel Interface / Ribbon in detail.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">Microsoft Excel is a spreadsheet application used to store, organize, analyze, and visualize data. When opened, the user interface has these key components:</div>
+      </div>
+      <div class="answer-section">
+        <h4>Key Components (write all for full marks)</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Ribbon:</strong> The toolbar at the top divided into tabs — Home, Insert, Formulas, Data, Review, View. Each tab contains related command groups. E.g., the Home tab has Clipboard, Font, Alignment, Number, Styles, Cells, and Editing groups.</div></li>
+          <li><div class="step-num">2</div><div><strong>Formula Bar:</strong> Located below the Ribbon, it displays the content or formula of the currently selected cell. You can type or edit formulas here.</div></li>
+          <li><div class="step-num">3</div><div><strong>Name Box:</strong> Located to the left of the Formula Bar. Displays the address of the selected cell (e.g., A1). Also used to create Named Ranges.</div></li>
+          <li><div class="step-num">4</div><div><strong>Worksheet Area:</strong> The grid of rows (numbered 1, 2, 3…) and columns (lettered A, B, C…). The intersection of a row and column is a cell (e.g., B3).</div></li>
+          <li><div class="step-num">5</div><div><strong>Sheet Tabs:</strong> At the bottom. Allow you to switch between worksheets within the same workbook (Sheet1, Sheet2, etc.).</div></li>
+          <li><div class="step-num">6</div><div><strong>Status Bar:</strong> At the very bottom. Shows quick calculations (Sum, Average, Count) for selected cells, and view options (Normal, Page Layout, Page Break Preview).</div></li>
+        </ul>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Mention at least 5 components with one-line description each. Draw a rough label diagram if asked.</div>
+    </div>
+  </div>
+
+  <!-- Q2 5-mark -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q2. What is a Cell, Cell Address, Workbook, and Worksheet in Excel?</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definitions with examples</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Cell:</strong> Smallest unit of a worksheet. Located at the intersection of a row and a column. Stores text, numbers, or formulas. Example: Cell A1 contains "Name".</div></li>
+          <li><div class="step-num">2</div><div><strong>Cell Address:</strong> Unique identifier of a cell — column letter + row number. Example: B3 = Column B, Row 3. Think of it like coordinates (latitude + longitude).</div></li>
+          <li><div class="step-num">3</div><div><strong>Worksheet:</strong> A single spreadsheet tab (grid of rows and columns) within a workbook. Default name: Sheet1.</div></li>
+          <li><div class="step-num">4</div><div><strong>Workbook:</strong> An Excel file (.xlsx) that contains one or more worksheets. It helps organize related data across multiple sheets.</div></li>
+          <li><div class="step-num">5</div><div><strong>Range:</strong> A group of cells. Example: A1:C5 refers to all cells from A1 to C5 (15 cells total).</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Q3 5-mark -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q3. Explain Absolute vs Relative vs Mixed Cell Referencing in Excel.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Types of Cell References</h4>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Type</th><th>Syntax</th><th>Behavior when copied</th><th>Example</th></tr>
+            <tr><td><strong>Relative</strong></td><td>A1</td><td>Adjusts row and column automatically</td><td>=A1+B1 → becomes =A2+B2 when copied down</td></tr>
+            <tr><td><strong>Absolute</strong></td><td>$A$1</td><td>Row and column stay fixed always</td><td>=$A$1*B2 → $A$1 never changes</td></tr>
+            <tr><td><strong>Mixed</strong></td><td>$A1 or A$1</td><td>One part fixed, one part adjusts</td><td>$A1 = column A fixed, row adjusts</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="answer-section">
+        <h4>Practical Example (write this for full marks)</h4>
+        <div class="answer-text">A teacher stores a tax rate in cell H1 (10%). To apply it to all salary values in B2:B10:</div>
+        <div class="code-block">=B2*$H$1   ← Use absolute reference for H1 so it doesn't shift when copied down</div>
+        <div class="tip-box"><strong>Exam Tip:</strong> Use $ sign before column letter and row number for absolute. Press F4 to toggle between reference types in Excel.</div>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Always include a table + one practical example with formula.</div>
+    </div>
+  </div>
+
+  <!-- Q4 5-mark -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q4. What is Conditional Formatting? Explain with example and steps.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">Conditional Formatting automatically applies formatting (color, bold, icons) to cells based on rules or conditions you define. It helps visually highlight important data without changing the actual values.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Steps to Apply (example: highlight sales > ₹5000)</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select the range of cells (e.g., D2:D20 — Sales column)</div></li>
+          <li><div class="step-num">2</div><div>Go to <strong>Home tab → Conditional Formatting</strong></div></li>
+          <li><div class="step-num">3</div><div>Click <strong>Highlight Cell Rules → Greater Than</strong></div></li>
+          <li><div class="step-num">4</div><div>Enter <strong>5000</strong> in the value box</div></li>
+          <li><div class="step-num">5</div><div>Choose format (e.g., Green Fill with Dark Text) → Click <strong>OK</strong></div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Other Useful Rules</h4>
+        <ul class="point-list">
+          <li>Top 10 Items — Home → Conditional Formatting → Top/Bottom Rules → Top 10 Items</li>
+          <li>Duplicate Values — Home → Conditional Formatting → Highlight Cell Rules → Duplicate Values</li>
+          <li>Data Bars / Color Scales — visually represent magnitude inside cells</li>
+          <li>Icon Sets — show arrows/traffic lights based on value ranges</li>
+        </ul>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Mention definition + 5 clear steps + at least 2 other rule types.</div>
+    </div>
+  </div>
+
+  <!-- Q5 8-mark -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q5. Explain Formulas vs Functions in Excel. Explain the order of operations (PEDMAS). Give examples.</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Formula vs Function</h4>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Formula</th><th>Function</th></tr>
+            <tr><td>User-defined equation that starts with =</td><td>Pre-built, named calculation built into Excel</td></tr>
+            <tr><td>Manually typed every time</td><td>Called by name with arguments in parentheses</td></tr>
+            <tr><td>More flexible but tedious for complex tasks</td><td>Faster, less error-prone, handles complex logic</td></tr>
+            <tr><td>Example: =A1+A2+A3</td><td>Example: =SUM(A1:A3)</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="answer-section">
+        <h4>Order of Operations — PEDMAS</h4>
+        <div class="answer-text">Excel evaluates formulas in this order:</div>
+        <ul class="step-list">
+          <li><div class="step-num">P</div><div><strong>Parentheses</strong> — calculated first. Example: =(2+3)*4 = 20</div></li>
+          <li><div class="step-num">E</div><div><strong>Exponentiation</strong> — power of. Example: =2^3 = 8</div></li>
+          <li><div class="step-num">D</div><div><strong>Division</strong> — left to right with multiplication</div></li>
+          <li><div class="step-num">M</div><div><strong>Multiplication</strong> — left to right with division</div></li>
+          <li><div class="step-num">A</div><div><strong>Addition</strong> — left to right with subtraction</div></li>
+          <li><div class="step-num">S</div><div><strong>Subtraction</strong> — last</div></li>
+        </ul>
+        <div class="code-block">Example: =5+3*2 → 5 + 6 = 11  (NOT 16, because * comes before +)
+Example: =(5+3)*2 → 8*2 = 16  (parentheses evaluated first)</div>
+      </div>
+      <div class="answer-section">
+        <h4>Common Functions (mention at least 8 for 8 marks)</h4>
+        <ul class="point-list">
+          <li>=SUM(A1:A10) — adds all values</li>
+          <li>=AVERAGE(A1:A10) — arithmetic mean</li>
+          <li>=COUNT(A1:A10) — counts numeric cells</li>
+          <li>=COUNTA(A1:A10) — counts all non-empty cells</li>
+          <li>=MAX(A1:A10) — largest value</li>
+          <li>=MIN(A1:A10) — smallest value</li>
+          <li>=IF(A1>50,"Pass","Fail") — logical test</li>
+          <li>=VLOOKUP("Apple",A1:C10,2,FALSE) — lookup value</li>
+          <li>=CONCATENATE("Hello"," ","World") — merge text → "Hello World"</li>
+          <li>=TRIM("  Excel  ") — removes extra spaces → "Excel"</li>
+        </ul>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Table for Formula vs Function, list all 6 PEDMAS steps, give formula example for each, list 8+ functions with syntax.</div>
+    </div>
+  </div>
+
+  <!-- Q6 8-mark -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q6. Explain Page Setup, Headers/Footers, and how to Print a workbook in Excel.</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Steps to Print a Workbook</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Preview:</strong> File → Print (or Ctrl+P) to see print preview</div></li>
+          <li><div class="step-num">2</div><div><strong>Page Layout Tab:</strong> Set Orientation (Portrait/Landscape), Paper Size (A4), Margins</div></li>
+          <li><div class="step-num">3</div><div><strong>Print Area:</strong> Select cells → Page Layout → Print Area → Set Print Area (to print only specific data)</div></li>
+          <li><div class="step-num">4</div><div><strong>Page Break Preview:</strong> View → Page Break Preview to see how pages will split</div></li>
+          <li><div class="step-num">5</div><div><strong>Scale:</strong> Page Layout → Scale to Fit → set 1 page wide × 1 page tall to fit all data on one page</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Adding Headers and Footers</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Go to <strong>Insert tab → Header & Footer</strong></div></li>
+          <li><div class="step-num">2</div><div>The worksheet switches to Page Layout view. Three sections appear: Left, Center, Right</div></li>
+          <li><div class="step-num">3</div><div>Type text or insert: Page Number (&[Page]), Date (&[Date]), File Name (&[File]), Sheet Name (&[Tab])</div></li>
+          <li><div class="step-num">4</div><div>Click "Go to Footer" to add footer content</div></li>
+          <li><div class="step-num">5</div><div>Click outside the header/footer area to exit → save</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Managing Workbook Views</h4>
+        <ul class="point-list">
+          <li><strong>Normal View:</strong> Default working view</li>
+          <li><strong>Page Layout View:</strong> Shows headers, footers, margins as they will print</li>
+          <li><strong>Page Break Preview:</strong> Blue lines show where pages break — drag to adjust</li>
+          <li><strong>Freeze Panes:</strong> View → Freeze Panes → keeps row/column headings visible while scrolling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODULE II ===== -->
+<div id="m2" class="module-section">
+  <div class="module-header">
+    <div class="module-icon ppt">II</div>
+    <div>
+      <h2>Module II — Introduction to MS PowerPoint</h2>
+      <p>Interface · Slides · Text · Images · Shapes · Transitions · Delivery</p>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q1. Explain the Microsoft PowerPoint Interface in detail.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Key Components</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Ribbon:</strong> Top toolbar with tabs — Home, Insert, Design, Transitions, Animations, Slide Show, Review, View. Each contains related commands grouped together.</div></li>
+          <li><div class="step-num">2</div><div><strong>Slide Pane (thumbnail panel):</strong> Left panel showing miniature slides for navigation. Drag slides here to rearrange order.</div></li>
+          <li><div class="step-num">3</div><div><strong>Editing Area:</strong> Central area where you design the currently selected slide (add text, images, shapes).</div></li>
+          <li><div class="step-num">4</div><div><strong>Notes Pane:</strong> Below the editing area. Add speaker notes visible only to the presenter during Presenter View — not shown to the audience.</div></li>
+          <li><div class="step-num">5</div><div><strong>Status Bar:</strong> Bottom bar showing slide number, total slides, language, and view buttons (Normal, Slide Sorter, Reading View, Slide Show).</div></li>
+          <li><div class="step-num">6</div><div><strong>Slide Sorter View:</strong> View → Slide Sorter — shows all slides as thumbnails for bulk rearranging, deleting, or duplicating.</div></li>
+        </ul>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Name and explain 5+ components. Mention what each is used for — not just the name.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q2. What is the primary purpose of MS PowerPoint? Explain its features.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Primary Purpose</h4>
+        <div class="answer-text">MS PowerPoint is a presentation graphics software by Microsoft used to create and deliver visual presentations that support a speaker's message. It organizes complex information into slides using text, images, charts, and multimedia.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Core Functions</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Communication:</strong> Sharing ideas in business, academic, or professional settings clearly and visually.</div></li>
+          <li><div class="step-num">2</div><div><strong>Visual Aid:</strong> Converting raw data into SmartArt, charts, and infographics to improve audience retention.</div></li>
+          <li><div class="step-num">3</div><div><strong>Structure:</strong> Providing logical flow through transitions and animations.</div></li>
+          <li><div class="step-num">4</div><div><strong>Versatility:</strong> Non-linear navigation via hyperlinks, custom slide shows, branding via Slide Master.</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Uses of PowerPoint</h4>
+        <ul class="point-list">
+          <li><strong>Education:</strong> Smart classes, e-learning, interactive lessons</li>
+          <li><strong>Marketing:</strong> Showing data with charts and graphs to clients</li>
+          <li><strong>Business:</strong> Investor pitches, profit/loss reports</li>
+          <li><strong>Resumes:</strong> Creative digital resumes with photos and design</li>
+          <li><strong>Depicting Growth:</strong> Company/student growth using graphs and visuals</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q3. What are Transitions in PowerPoint? How do you apply them? Explain best practices.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text"><strong>Transitions</strong> are visual effects applied when moving from one slide to the next during a slideshow. They make the presentation more engaging and dynamic. Examples: Fade, Wipe, Fly In, Morph, Push, Cover.</div>
+        <div class="divider"></div>
+        <div class="answer-text"><strong>Difference from Animations:</strong> Transitions apply to the entire slide change. Animations apply to individual elements (text, images) within a slide.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Steps to Apply a Transition</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select the slide in the Slide Pane</div></li>
+          <li><div class="step-num">2</div><div>Go to <strong>Transitions tab</strong> in the Ribbon</div></li>
+          <li><div class="step-num">3</div><div>Click the desired effect (e.g., Fade)</div></li>
+          <li><div class="step-num">4</div><div>Set <strong>Duration</strong> (how fast/slow) and <strong>Sound</strong> if needed</div></li>
+          <li><div class="step-num">5</div><div>Click <strong>"Apply to All"</strong> to apply the same transition to every slide</div></li>
+          <li><div class="step-num">6</div><div>Click <strong>Preview</strong> to see the effect before presenting</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Best Practices</h4>
+        <ul class="point-list">
+          <li>Use the same transition throughout for a professional look</li>
+          <li>Do NOT use different transitions on every slide — distracting</li>
+          <li>Keep duration short (0.5–1 second) for business presentations</li>
+          <li>Avoid sound effects in professional settings</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q4. How do you create, edit slides and format text in MS PowerPoint?</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Creating Slides</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>New Slide:</strong> Home tab → New Slide button OR press Ctrl + M. Choose a layout (Title Slide, Title & Content, Blank, etc.)</div></li>
+          <li><div class="step-num">2</div><div><strong>Duplicate:</strong> Right-click a slide → Duplicate Slide</div></li>
+          <li><div class="step-num">3</div><div><strong>Delete:</strong> Right-click → Delete Slide</div></li>
+          <li><div class="step-num">4</div><div><strong>Rearrange:</strong> Drag slides in the Slide Pane</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Formatting Text</h4>
+        <ul class="point-list">
+          <li><strong>Font, Size, Color:</strong> Home tab → Font group</li>
+          <li><strong>Bold/Italic/Underline:</strong> Ctrl+B / Ctrl+I / Ctrl+U</li>
+          <li><strong>Alignment:</strong> Left, Center, Right, Justify — Home tab → Paragraph group</li>
+          <li><strong>Bullet Points:</strong> Home → Paragraph → Bullets/Numbering</li>
+          <li><strong>Line Spacing:</strong> Home → Paragraph → Line Spacing</li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Best Practices for Text</h4>
+        <ul class="point-list">
+          <li>Keep slides simple — avoid paragraphs, use bullet points</li>
+          <li>Use legible fonts (minimum 18pt for body, 28pt+ for headings)</li>
+          <li>High contrast between text and background</li>
+          <li>Use at most 2 font families per presentation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q5. How do you effectively deliver a presentation? Explain Rehearse Timings and Slide Show options.</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Rehearse Timings</h4>
+        <div class="answer-text"><strong>Purpose:</strong> Practice your presentation while recording how long you spend on each slide. Helps manage time during the actual presentation.</div>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Go to <strong>Slide Show tab → Rehearse Timings</strong></div></li>
+          <li><div class="step-num">2</div><div>The presentation starts with a timer in the top-left corner</div></li>
+          <li><div class="step-num">3</div><div>Click through slides at your intended pace</div></li>
+          <li><div class="step-num">4</div><div>When finished, PowerPoint asks: "Do you want to save timings?" — Click <strong>Yes</strong></div></li>
+          <li><div class="step-num">5</div><div>In Slide Sorter view, timing for each slide is now displayed below it</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Slide Show Setup Options</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>From Beginning:</strong> Slide Show → From Beginning (or press F5)</div></li>
+          <li><div class="step-num">2</div><div><strong>From Current Slide:</strong> Shift+F5</div></li>
+          <li><div class="step-num">3</div><div><strong>Set Up Slide Show:</strong> Slide Show → Set Up Show → choose Presented by Speaker / Browsed by Individual / Browsed at Kiosk (loops automatically)</div></li>
+          <li><div class="step-num">4</div><div><strong>Presenter View:</strong> Shows notes, timer, next slide preview on presenter's screen while audience sees only the slide</div></li>
+          <li><div class="step-num">5</div><div><strong>Present Online:</strong> Slide Show → Present Online → Office Presentation Service → share link with audience</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Review and Proof</h4>
+        <ul class="point-list">
+          <li><strong>Spell Check:</strong> Review tab → Spelling (F7)</li>
+          <li><strong>Comments:</strong> Review → New Comment — for collaborative feedback</li>
+          <li><strong>Compare:</strong> Review → Compare — merge two versions of same presentation</li>
+        </ul>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Cover Rehearse Timings steps, Presenter View, Set Up Show options, and Present Online. Total 5+ distinct features.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODULE III ===== -->
+<div id="m3" class="module-section">
+  <div class="module-header">
+    <div class="module-icon excel">III</div>
+    <div>
+      <h2>Module III — Gaining Expertise in Excel</h2>
+      <p>Advanced Functions · Sorting/Filtering · PivotTables · Charts · Conditional Formatting</p>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q1. Explain VLOOKUP and XLOOKUP functions with syntax and examples.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>VLOOKUP — Vertical Lookup</h4>
+        <div class="answer-text">Searches for a value in the <strong>first (leftmost) column</strong> of a table and returns a value from another column in the same row.</div>
+        <div class="code-block">=VLOOKUP(value, table_array, col_index_num, [range_lookup])
+
+Arguments:
+  value        → What to search for (e.g., "Apple" or A2)
+  table_array  → The data table range (e.g., A1:D100)
+  col_index    → Column number to return (1=first col, 2=second, etc.)
+  range_lookup → FALSE = exact match | TRUE = approximate match
+
+Example:
+  =VLOOKUP("Apple", A1:C10, 2, FALSE)
+  → Finds "Apple" in column A, returns value from column B</div>
+      </div>
+      <div class="answer-section">
+        <h4>XLOOKUP — Improved Lookup (modern)</h4>
+        <div class="code-block">=XLOOKUP(lookup_value, lookup_array, return_array)
+
+Example:
+  =XLOOKUP("Apple", A1:A10, B1:B10)
+  → Searches column A for Apple, returns matching value from column B
+
+Advantages over VLOOKUP:
+  - Can search in ANY direction (left, right, up, down)
+  - Returns entire row/column (array)
+  - Handles errors gracefully with [if_not_found] argument</div>
+      </div>
+      <div class="answer-section">
+        <h4>Limitations of VLOOKUP</h4>
+        <ul class="point-list">
+          <li>Can only look from left column to the right (cannot look left)</li>
+          <li>If a column is inserted/deleted, column index number breaks</li>
+          <li>Slower on very large datasets compared to INDEX-MATCH</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q2. Explain INDEX and MATCH functions. Why use INDEX-MATCH over VLOOKUP?</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>INDEX Function</h4>
+        <div class="code-block">=INDEX(array, row_num, [col_num])
+→ Returns the value at a specific row and column position
+
+Example:
+  =INDEX(A1:C10, 3, 2)  → Returns value in row 3, column 2 of range A1:C10</div>
+      </div>
+      <div class="answer-section">
+        <h4>MATCH Function</h4>
+        <div class="code-block">=MATCH(lookup_value, lookup_array, [match_type])
+→ Returns the POSITION (row number) of a value in a range
+
+Example:
+  =MATCH("Apple", A1:A10, 0)  → Returns 3 if Apple is in row 3
+  match_type: 0 = exact match</div>
+      </div>
+      <div class="answer-section">
+        <h4>Combined INDEX-MATCH Formula</h4>
+        <div class="code-block">=INDEX(B1:B10, MATCH("Apple", A1:A10, 0))
+
+How it works:
+  1. MATCH finds the row where "Apple" exists in column A → returns position (e.g., 3)
+  2. INDEX uses that position to return the value from column B → returns B3</div>
+      </div>
+      <div class="answer-section">
+        <h4>Why INDEX-MATCH is better than VLOOKUP</h4>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Feature</th><th>VLOOKUP</th><th>INDEX-MATCH</th></tr>
+            <tr><td>Direction</td><td>Left to right only</td><td>Any direction</td></tr>
+            <tr><td>Column insertion</td><td>Breaks formula</td><td>Not affected</td></tr>
+            <tr><td>Speed on large data</td><td>Slower</td><td>Faster</td></tr>
+            <tr><td>Flexibility</td><td>Limited</td><td>Very flexible</td></tr>
+            <tr><td>Error risk</td><td>Higher</td><td>Lower</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Explain INDEX alone → MATCH alone → combined formula → comparison table. That's 8-mark worthy content.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q3. What is a Pivot Table? How do you create and use it?</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">A PivotTable is an interactive tool that summarizes, groups, counts, and analyzes large datasets dynamically. It allows you to reorganize and filter data without changing the source data. It is the foundation for Excel dashboards.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Steps to Create a Pivot Table</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Select Data:</strong> Click anywhere inside your dataset (ensure no blank rows/columns)</div></li>
+          <li><div class="step-num">2</div><div><strong>Insert:</strong> Go to <strong>Insert tab → PivotTable</strong></div></li>
+          <li><div class="step-num">3</div><div><strong>Location:</strong> Choose New Worksheet or Existing Worksheet → Click OK</div></li>
+          <li><div class="step-num">4</div><div><strong>Field List:</strong> A panel appears on the right with all column headers as fields</div></li>
+          <li><div class="step-num">5</div><div><strong>Build the Table:</strong> Drag fields into 4 areas:
+            <br>• <strong>Rows:</strong> Categories to group by (e.g., Department)
+            <br>• <strong>Columns:</strong> Cross-tab categories (e.g., Quarter)
+            <br>• <strong>Values:</strong> Numbers to summarize (e.g., Sales — shows Sum by default)
+            <br>• <strong>Filters:</strong> Filter the entire pivot by a field (e.g., Year)</div></li>
+          <li><div class="step-num">6</div><div><strong>Summarize:</strong> Right-click a value → Value Field Settings → choose Sum / Average / Count / Max / Min</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Slicers — Visual Filters</h4>
+        <div class="answer-text">Insert tab → Slicer → select fields. Clickable buttons appear to filter the pivot table interactively. Used in dashboards.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Pivot Charts</h4>
+        <div class="answer-text">Once a PivotTable is created: PivotTable Analyze tab → PivotChart. The chart updates automatically when you filter the pivot.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q4. Explain Sorting and Filtering data in Excel. How do they help with large datasets?</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>SORTING</h4>
+        <div class="answer-text">Rearranges rows based on the values in one or more columns.</div>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select any cell in your data</div></li>
+          <li><div class="step-num">2</div><div>Data tab → Sort</div></li>
+          <li><div class="step-num">3</div><div>Choose column to sort by (e.g., Sales)</div></li>
+          <li><div class="step-num">4</div><div>Choose order: Smallest to Largest / A to Z / Largest to Smallest</div></li>
+          <li><div class="step-num">5</div><div>For multi-level sort: click <strong>Add Level</strong> → sort by Region first, then by Sales</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>FILTERING</h4>
+        <div class="answer-text">Temporarily hides rows that don't match your criteria — original data is unchanged.</div>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select the data range</div></li>
+          <li><div class="step-num">2</div><div>Data tab → Filter (dropdown arrows appear on each column header)</div></li>
+          <li><div class="step-num">3</div><div>Click the dropdown arrow on the column you want to filter</div></li>
+          <li><div class="step-num">4</div><div>Uncheck values to hide, or use "Number Filters → Greater Than → 5000"</div></li>
+          <li><div class="step-num">5</div><div>To clear: Data tab → Clear</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>How These Tools Simplify Large Datasets</h4>
+        <ul class="point-list">
+          <li><strong>Logical Ordering:</strong> Sort reveals patterns — top sellers, upcoming deadlines</li>
+          <li><strong>Precision Viewing:</strong> Filter isolates specific subsets (e.g., only "Escalated" tickets)</li>
+          <li><strong>Hierarchical Organization:</strong> Multi-level sort groups by Region then by Sales</li>
+          <li><strong>Error Detection:</strong> Blank cells, typos, duplicates become visible</li>
+          <li><strong>Rapid Summarization:</strong> Extract insights from thousands of rows in seconds</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q5. Explain chart types in Excel. Why is a Pie Chart different from a Bar Chart? How to choose the right chart?</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>How to Create a Chart</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select the data including headers</div></li>
+          <li><div class="step-num">2</div><div>Insert tab → Charts group → choose chart type</div></li>
+          <li><div class="step-num">3</div><div>Use Chart Design tab to change layout, style, data</div></li>
+          <li><div class="step-num">4</div><div>Use Format tab to style individual elements</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Chart Types and When to Use Them</h4>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Chart Type</th><th>Best For</th><th>Example Use</th></tr>
+            <tr><td><strong>Pie Chart</strong></td><td>Parts of a whole (composition) — use only with 2-5 categories that sum to 100%</td><td>Market share by brand</td></tr>
+            <tr><td><strong>Bar/Column Chart</strong></td><td>Comparing values across categories</td><td>Sales by region, Q1 vs Q2 vs Q3</td></tr>
+            <tr><td><strong>Line Chart</strong></td><td>Trends over time</td><td>Monthly revenue growth, stock prices</td></tr>
+            <tr><td><strong>Scatter Plot</strong></td><td>Relationship between two variables</td><td>Advertising spend vs Sales</td></tr>
+            <tr><td><strong>Area Chart</strong></td><td>Cumulative totals over time</td><td>Cumulative sales per quarter</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="answer-section">
+        <h4>Quarterly Revenue Example</h4>
+        <div class="code-block">Dataset:
+  Q1: ₹4,50,000 | Q2: ₹5,20,000 | Q3: ₹4,80,000 | Q4: ₹6,10,000
+
+Best chart choice:
+  → LINE CHART: Shows the trajectory (rising Q4) clearly
+  → COLUMN CHART: Compares which quarter was biggest
+  
+  Avoid PIE CHART here — quarterly data is not parts of a whole</div>
+      </div>
+      <div class="tip-box"><strong>Exam Tip:</strong> Pie = Composition. Bar/Column = Comparison. Line = Trend over time. Remember this rule to always choose correctly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODULE IV ===== -->
+<div id="m4" class="module-section">
+  <div class="module-header">
+    <div class="module-icon ppt">IV</div>
+    <div>
+      <h2>Module IV — Gaining Expertise in PowerPoint</h2>
+      <p>Slide Master · Tables · Charts · Design Templates · Non-linear Navigation</p>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q1. What is Slide Master in PowerPoint? How does it ensure a cohesive presentation?</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">The <strong>Slide Master</strong> is the top-level slide in a hierarchy that controls the design, fonts, colors, backgrounds, and layout of ALL slides in a presentation. Any change to the Slide Master automatically propagates to every slide — ensuring a uniform, professional look.</div>
+      </div>
+      <div class="answer-section">
+        <h4>How to Access Slide Master</h4>
+        <div class="code-block">View tab → Slide Master</div>
+        <div class="answer-text">The view shows the Master Slide at top (affects all slides) and Layout Masters below (affect slides using that specific layout).</div>
+      </div>
+      <div class="answer-section">
+        <h4>Key Features of Slide Master</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Global Formatting:</strong> Change font, background color, or add logo ONCE on the Master → it appears on every slide automatically.</div></li>
+          <li><div class="step-num">2</div><div><strong>Layout Consistency:</strong> Create Layout Masters (Title Slide, Two-Content, Blank) with perfectly aligned text boxes and consistent sizing.</div></li>
+          <li><div class="step-num">3</div><div><strong>Efficiency:</strong> Instead of editing 40 slides one by one to add a company logo, add it once to the Master.</div></li>
+          <li><div class="step-num">4</div><div><strong>Template Creation:</strong> Build custom templates with brand colors and fonts for organizational use.</div></li>
+          <li><div class="step-num">5</div><div><strong>Placeholder Control:</strong> Define exact position/format of slide numbers, dates, and footers across all slides.</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Notes Master and Handout Master</h4>
+        <ul class="point-list">
+          <li><strong>Notes Master:</strong> View → Notes Master — controls layout of printed speaker notes pages</li>
+          <li><strong>Handout Master:</strong> View → Handout Master — controls layout when printing multiple slides per page (2, 3, 4, 6, 9 slides per page)</li>
+        </ul>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Definition + how to access + 5 features (named and explained) + notes/handout master = 8 marks covered.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q2. How do you create non-linear navigation using Action Buttons and Hyperlinks in PowerPoint?</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>What is Non-Linear Navigation?</h4>
+        <div class="answer-text">Instead of presenting slides 1→2→3→4 in sequence, non-linear navigation lets you jump to any section directly. A "Home" slide acts as a menu — clicking a button takes you to a specific section, and each section has a "Return to Home" button.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Step 1: Create the Home Slide (Menu)</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>On Slide 1, insert shapes or text boxes for each section (e.g., "Tech", "Healthcare", "Retail")</div></li>
+          <li><div class="step-num">2</div><div>Right-click a shape → <strong>Link</strong> (or Hyperlink → Ctrl+K)</div></li>
+          <li><div class="step-num">3</div><div>In the dialog, choose <strong>"Place in This Document"</strong></div></li>
+          <li><div class="step-num">4</div><div>Select the first slide of the target section → Click OK</div></li>
+          <li><div class="step-num">5</div><div>Repeat for each section button</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Step 2: Add "Return to Home" Button via Slide Master</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Go to <strong>View → Slide Master</strong></div></li>
+          <li><div class="step-num">2</div><div>On the master slide, go to <strong>Insert → Shapes</strong> → scroll down to <strong>Action Buttons</strong> → choose the Home icon</div></li>
+          <li><div class="step-num">3</div><div>Draw the button on the slide — an Action Settings dialog appears automatically</div></li>
+          <li><div class="step-num">4</div><div>Set <strong>Hyperlink to: First Slide</strong> → Click OK</div></li>
+          <li><div class="step-num">5</div><div>This places a Home button on every slide in the same position — no need to add it 40 times manually</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Modern Alternative: Summary Zoom</h4>
+        <div class="code-block">Insert tab → Zoom → Summary Zoom
+→ Select the first slides of each section
+→ PowerPoint creates an interactive thumbnail home slide automatically
+→ Clicking a thumbnail jumps to that section and returns automatically</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q3. How do you add Tables and Charts to a PowerPoint presentation?</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Adding a Table</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Go to <strong>Insert tab → Table</strong></div></li>
+          <li><div class="step-num">2</div><div>Drag over the grid to select rows × columns, OR click "Insert Table" to type dimensions</div></li>
+          <li><div class="step-num">3</div><div>Use <strong>Table Design tab</strong> to apply styles, colors, borders</div></li>
+          <li><div class="step-num">4</div><div>To embed an Excel table: Insert → Object → Create from File → browse Excel file → OK</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Adding a Chart</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Insert tab → Chart → Choose type (Bar, Pie, Line, etc.) → OK</div></li>
+          <li><div class="step-num">2</div><div>A mini Excel spreadsheet opens — enter your data there</div></li>
+          <li><div class="step-num">3</div><div>Close the spreadsheet — chart updates automatically</div></li>
+          <li><div class="step-num">4</div><div>To embed a chart from Excel: In Excel, select chart → Copy → In PowerPoint → Paste Special → choose Link or Embed</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODULE V ===== -->
+<div id="m5" class="module-section">
+  <div class="module-header">
+    <div class="module-icon adv">V</div>
+    <div>
+      <h2>Module V — Advanced Excel Skills</h2>
+      <p>Macros · VBA · Data Validation · Forecasting · What-If Analysis · Workbook Protection</p>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q1. What are Macros in Excel? How do you create and run one?</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">A <strong>Macro</strong> is a recorded series of steps (actions) that can be replayed with a single click to automate repetitive tasks. Macros are stored as VBA (Visual Basic for Applications) code inside the Excel file. They save time and reduce human error.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Macro Languages in Excel</h4>
+        <ul class="point-list">
+          <li><strong>VBA (Visual Basic for Applications):</strong> Current standard — used in all modern Excel versions. Requires basic programming knowledge to edit.</li>
+          <li><strong>XLM:</strong> Old macro language from Excel 4.0. Deprecated and disabled in modern Excel for security reasons.</li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Steps to Record a Macro</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Go to <strong>View tab → Macros → Record Macro</strong> (OR Developer tab → Record Macro)</div></li>
+          <li><div class="step-num">2</div><div>Give the macro a <strong>Name</strong> (no spaces), assign a <strong>Shortcut key</strong> (e.g., Ctrl+Shift+F), choose <strong>Store in</strong> (This Workbook)</div></li>
+          <li><div class="step-num">3</div><div>Click <strong>OK</strong> — recording begins. Every action you take is now recorded.</div></li>
+          <li><div class="step-num">4</div><div>Perform the actions you want to automate (e.g., bold headers, apply borders, sort data)</div></li>
+          <li><div class="step-num">5</div><div>Click <strong>Stop Recording</strong> (View → Macros → Stop Recording)</div></li>
+          <li><div class="step-num">6</div><div>Save the file as <strong>.xlsm</strong> (Macro-Enabled Workbook)</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Steps to Run a Macro</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>View tab → Macros → View Macros → select macro → click <strong>Run</strong></div></li>
+          <li><div class="step-num">2</div><div>OR use the assigned keyboard shortcut (e.g., Ctrl+Shift+F)</div></li>
+          <li><div class="step-num">3</div><div>To edit: View → Macros → Edit → opens VBA editor (Alt+F11)</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Functions vs Subroutines in VBA</h4>
+        <div class="table-wrap">
+          <table>
+            <tr><th>Functions</th><th>Subroutines (Sub)</th></tr>
+            <tr><td>Returns a value</td><td>Does NOT return a value</td></tr>
+            <tr><td>Called by a variable or used in cell formulas</td><td>Called from anywhere in code or via Run</td></tr>
+            <tr><td>Can be used directly in spreadsheet as formula</td><td>Cannot be used directly in spreadsheet</td></tr>
+            <tr><td>Example: Function Triple(x) → returns x*3</td><td>Example: Sub FormatReport() → formats sheet</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q2. What is Data Validation in Excel? Explain with examples including drop-down lists.</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">Data Validation restricts what a user can enter into a cell. It prevents incorrect data entry and maintains data integrity. Found under: <strong>Data tab → Data Tools → Data Validation</strong>.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Types of Validation Rules</h4>
+        <ul class="point-list">
+          <li><strong>Whole Number:</strong> Allow only integers between 1 and 100</li>
+          <li><strong>Decimal:</strong> Allow numbers like 0.5, 1.25 within a range</li>
+          <li><strong>Date:</strong> Allow only dates between two specified dates</li>
+          <li><strong>List:</strong> Drop-down list with predefined options</li>
+          <li><strong>Text Length:</strong> Limit text to e.g., max 10 characters</li>
+          <li><strong>Custom:</strong> Use a formula to define the rule</li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Steps to Create a Drop-Down List</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Enter list items in a range, e.g., A1:A4 = [North, South, East, West]</div></li>
+          <li><div class="step-num">2</div><div>Select the target cell(s) where dropdown should appear (e.g., B1)</div></li>
+          <li><div class="step-num">3</div><div>Data tab → Data Validation → Settings tab</div></li>
+          <li><div class="step-num">4</div><div>In "Allow" dropdown → choose <strong>List</strong></div></li>
+          <li><div class="step-num">5</div><div>In "Source" field → type <strong>=$A$1:$A$4</strong> (use absolute reference)</div></li>
+          <li><div class="step-num">6</div><div>Click OK → a dropdown arrow appears in the target cell</div></li>
+        </ul>
+      </div>
+      <div class="tip-box"><strong>Exam Tip:</strong> Add an Input Message (shown when cell is selected) and an Error Alert (shown when invalid data is entered) for bonus marks.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q3. Explain What-If Analysis in Excel — Goal Seek, Scenario Manager, and Data Tables.</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">What-If Analysis is the process of changing values in cells to see how those changes affect the outcome of formulas. It is used for scenario planning, forecasting, and decision-making. Found at: <strong>Data tab → What-If Analysis</strong>.</div>
+      </div>
+      <div class="answer-section">
+        <h4>1. Goal Seek</h4>
+        <div class="answer-text">Used when you know the <strong>desired result</strong> but don't know the <strong>input value</strong> needed to achieve it.</div>
+        <div class="code-block">Example: You want ₹1,00,000 profit. Your profit formula is in C5.
+You don't know how many units to sell.
+
+Steps:
+  Data → What-If Analysis → Goal Seek
+  Set Cell: C5 (profit formula)
+  To Value: 100000
+  By Changing Cell: B5 (units sold)
+  → Click OK → Excel calculates required units automatically</div>
+      </div>
+      <div class="answer-section">
+        <h4>2. Scenario Manager</h4>
+        <div class="answer-text">Create, save, and compare multiple named scenarios (sets of input values).</div>
+        <div class="code-block">Example: Compare Best Case vs Worst Case vs Base Case sales
+  Data → What-If Analysis → Scenario Manager → Add
+  Name: "Best Case" | Changing cells: B2 (units), C2 (price)
+  Enter values → OK
+  Add more scenarios → click "Summary" to see a comparison report</div>
+      </div>
+      <div class="answer-section">
+        <h4>3. Data Tables</h4>
+        <div class="answer-text">Shows results of multiple input values at once — used in financial modeling.</div>
+        <div class="code-block">One-Variable Data Table:
+  Column of input values → reference formula at top-right
+  Select range → Data → What-If → Data Table
+  Set "Column input cell" → OK
+  → Results for each input appear automatically</div>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Define What-If Analysis → explain all 3 tools with one example each. Cover steps clearly.</div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q4. How do you protect a Workbook and Worksheet in Excel? How to restrict copying a cell?</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Protect a Worksheet</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Review tab → <strong>Protect Sheet</strong></div></li>
+          <li><div class="step-num">2</div><div>Enter a password</div></li>
+          <li><div class="step-num">3</div><div>Choose what users CAN do (select locked/unlocked cells, format cells, etc.)</div></li>
+          <li><div class="step-num">4</div><div>Click OK → sheet is now protected</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Protect a Workbook</h4>
+        <div class="code-block">Review tab → Protect Workbook → enter password
+→ Prevents adding/deleting/renaming sheets</div>
+      </div>
+      <div class="answer-section">
+        <h4>Restrict Cell Copying</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select cells to protect → Press <strong>Ctrl+1</strong> → Format Cells dialog</div></li>
+          <li><div class="step-num">2</div><div>Go to <strong>Protection tab</strong> → check <strong>Locked</strong> → OK</div></li>
+          <li><div class="step-num">3</div><div>Review tab → <strong>Protect Sheet</strong> → enter password → OK</div></li>
+          <li><div class="step-num">4</div><div>Now locked cells cannot be copied, edited, or deleted</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== MODULE VI ===== -->
+<div id="m6" class="module-section">
+  <div class="module-header">
+    <div class="module-icon ppt">VI</div>
+    <div>
+      <h2>Module VI — Advanced PowerPoint Skills</h2>
+      <p>SmartArt · Audio/Video · Animations · Custom Slide Show · Security · Distribution</p>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q1. What is SmartArt? How do you add and modify it in PowerPoint?</div>
+      <div class="q-meta"><span class="badge b5">5 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Definition</h4>
+        <div class="answer-text">SmartArt is a visual diagram tool in PowerPoint used to represent information in a structured, graphical way — such as organizational charts, process flows, hierarchies, cycles, and relationship diagrams. It is much more visually appealing than plain bullet points.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Steps to Insert SmartArt</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Insert tab → <strong>SmartArt</strong></div></li>
+          <li><div class="step-num">2</div><div>Choose a category: List, Process, Cycle, Hierarchy, Relationship, Matrix, Pyramid</div></li>
+          <li><div class="step-num">3</div><div>Select a design → Click OK</div></li>
+          <li><div class="step-num">4</div><div>Click on text placeholders to type your content</div></li>
+          <li><div class="step-num">5</div><div>Use <strong>SmartArt Design tab</strong> to change layout, colors, style</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Common SmartArt Types</h4>
+        <ul class="point-list">
+          <li><strong>Hierarchy:</strong> Org charts — boss → managers → employees</li>
+          <li><strong>Process:</strong> Step-by-step flows — Step1 → Step2 → Step3</li>
+          <li><strong>Cycle:</strong> Repeating processes — Plan → Do → Check → Act</li>
+          <li><strong>List:</strong> Visual bullet points with icons</li>
+          <li><strong>Relationship:</strong> Venn diagrams, overlapping ideas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q2. How do you add Audio and Video to a PowerPoint presentation? Explain customizing animations.</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>Adding Audio</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Insert tab → <strong>Audio</strong> → choose "Audio on My PC" (local file) or "Record Audio" (record directly)</div></li>
+          <li><div class="step-num">2</div><div>A speaker icon appears on the slide</div></li>
+          <li><div class="step-num">3</div><div>Use <strong>Playback tab</strong> to set: Start (On Click / Automatically), Loop, Hide During Slideshow, Trim Audio</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Adding Video</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Insert tab → <strong>Video</strong> → "Video on My PC" (local file) OR "Online Video" (YouTube link)</div></li>
+          <li><div class="step-num">2</div><div>Use <strong>Playback tab</strong>: set Start, Trim Video, Fade In/Out, Loop, Full Screen playback</div></li>
+          <li><div class="step-num">3</div><div>To add a Bookmark: play video to specific moment → Playback tab → <strong>Add Bookmark</strong> → jump to this point via animations</div></li>
+        </ul>
+        <div class="tip-box"><strong>Note:</strong> Online videos require internet connection during presentation. Always test connectivity beforehand.</div>
+      </div>
+      <div class="answer-section">
+        <h4>Customizing Animations</h4>
+        <div class="answer-text">Animations control how individual elements (text, images, shapes) appear, disappear, or move on a slide.</div>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select an object → <strong>Animations tab</strong></div></li>
+          <li><div class="step-num">2</div><div>Choose animation type: <strong>Entrance</strong> (Appear, Fade, Fly In) | <strong>Emphasis</strong> (Pulse, Spin) | <strong>Exit</strong> (Disappear, Fly Out) | <strong>Motion Path</strong></div></li>
+          <li><div class="step-num">3</div><div>Click <strong>Animation Pane</strong> (Animations tab → Advanced Animation → Animation Pane) to see all animations listed</div></li>
+          <li><div class="step-num">4</div><div>Set <strong>Start:</strong> On Click / With Previous / After Previous</div></li>
+          <li><div class="step-num">5</div><div>Set <strong>Duration</strong> (speed) and <strong>Delay</strong> (wait before starting)</div></li>
+          <li><div class="step-num">6</div><div>Use <strong>Animation Painter</strong> to copy an animation from one object to another</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Q3. How do you secure and distribute a PowerPoint presentation? (Password, Video, Online)</div>
+      <div class="q-meta"><span class="badge b8">8 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>1. Password Protection</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>File tab → <strong>Info → Protect Presentation</strong></div></li>
+          <li><div class="step-num">2</div><div>Click <strong>"Encrypt with Password"</strong></div></li>
+          <li><div class="step-num">3</div><div>Enter password → Re-enter to confirm → OK</div></li>
+          <li><div class="step-num">4</div><div>Now every time the file is opened, it asks for the password</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>2. Convert to Video</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>File tab → <strong>Export → Create a Video</strong></div></li>
+          <li><div class="step-num">2</div><div>Choose quality (Full HD 1080p / HD 720p / Standard)</div></li>
+          <li><div class="step-num">3</div><div>Choose whether to use recorded timings/narrations</div></li>
+          <li><div class="step-num">4</div><div>Click <strong>Create Video</strong> → Save as .mp4 or .wmv</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>3. Present Online</h4>
+        <div class="code-block">Slide Show tab → Present Online → Office Presentation Service
+→ Check box to allow viewers to download
+→ Click Connect → Copy/email the link to audience
+→ Click "Start Presentation" → "End Online Presentation" when done</div>
+      </div>
+      <div class="answer-section">
+        <h4>4. Other Distribution Methods</h4>
+        <ul class="point-list">
+          <li><strong>Package for CD:</strong> File → Export → Package Presentation for CD — includes all linked files and fonts</li>
+          <li><strong>Save as PDF:</strong> File → Export → Create PDF/XPS — read-only, preserves layout</li>
+          <li><strong>Share:</strong> File → Share → Save to OneDrive → share link with collaborators</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCENARIO ===== -->
+<div id="scenario" class="module-section">
+  <div class="module-header">
+    <div class="module-icon adv">🎯</div>
+    <div>
+      <h2>Scenario Question — 14 Marks</h2>
+      <p>2 full practice scenarios with complete model answers (Part A = Excel, Part B = PPT)</p>
+    </div>
+  </div>
+
+  <!-- Scenario 1 -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Scenario 1: Sales Performance Analysis (Most Likely)</div>
+      <div class="q-meta"><span class="scenario-badge">14 Marks</span><span class="badge bhot">🔥 Hot</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>The Question</h4>
+        <div class="answer-text">A company tracks monthly sales across departments. The dataset has columns: Department (A), Month (B), Sales Amount (C), Target (D), Status (E — "Met" / "Not Met"). Management wants Excel analysis and a PowerPoint report.</div>
+      </div>
+      <div class="part-label">Part A — Excel Analysis (7 Marks)</div>
+      <div class="answer-section">
+        <h4>Task 1: Total Sales by Department using SUMIF</h4>
+        <div class="code-block">=SUMIF(A:A, "Marketing", C:C)
+→ Adds all sales amounts in column C where column A = "Marketing"
+
+For all departments, use SUMIFS for multiple criteria:
+=SUMIFS(C:C, A:A, "Marketing", D:D, "Q1")
+→ Total Marketing sales in Q1 only</div>
+      </div>
+      <div class="answer-section">
+        <h4>Task 2: Average Sales per Department using AVERAGEIF</h4>
+        <div class="code-block">=AVERAGEIF(A:A, "Sales", C:C)
+→ Average of C column where column A = "Sales"</div>
+      </div>
+      <div class="answer-section">
+        <h4>Task 3: Count departments that met target using COUNTIF</h4>
+        <div class="code-block">=COUNTIF(E:E, "Met")     → How many rows have Status = "Met"
+=COUNTIF(E:E, "Not Met") → How many missed target</div>
+      </div>
+      <div class="answer-section">
+        <h4>Task 4: Highlight underperforming rows using Conditional Formatting</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select column C (Sales Amount)</div></li>
+          <li><div class="step-num">2</div><div>Home → Conditional Formatting → New Rule → "Use formula"</div></li>
+          <li><div class="step-num">3</div><div>Enter: =C2&lt;D2 (where sales is below target)</div></li>
+          <li><div class="step-num">4</div><div>Set red fill → OK</div></li>
+        </ul>
+      </div>
+      <div class="answer-section">
+        <h4>Task 5: Create a PivotTable + Column Chart</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div>Select data → Insert → PivotTable → New Sheet</div></li>
+          <li><div class="step-num">2</div><div>Drag Department to Rows, Sales Amount to Values (Sum), Month to Columns</div></li>
+          <li><div class="step-num">3</div><div>PivotTable Analyze → PivotChart → Column Chart → shows department-wise monthly comparison</div></li>
+        </ul>
+      </div>
+      <div class="part-label">Part B — PowerPoint Design (7 Marks)</div>
+      <div class="answer-section">
+        <h4>5-Slide Deck Design with Slide Master and Navigation</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Slide Master Setup:</strong> View → Slide Master → set company logo (top-right corner), brand font (e.g., Calibri), background color → Close Master View → applies to all 5 slides automatically</div></li>
+          <li><div class="step-num">2</div><div><strong>Slide 1 (Home/Menu):</strong> Title: "Sales Performance Report Q1 2025". Insert 4 rectangle shapes labeled: Marketing | Sales | IT | Operations. Link each shape to its respective slide using Ctrl+K → Place in This Document</div></li>
+          <li><div class="step-num">3</div><div><strong>Slides 2–5 (Department slides):</strong> Each contains: Department heading, Paste the Excel chart (Paste Special → Linked), key metrics (Total, Average, Status count), 2-3 bullet point insights</div></li>
+          <li><div class="step-num">4</div><div><strong>Return to Home Button:</strong> View → Slide Master → Insert → Shapes → Action Buttons → Home icon → draw button → Set "Hyperlink to: First Slide" → OK. This adds the button on ALL slides from one place</div></li>
+          <li><div class="step-num">5</div><div><strong>Transitions:</strong> Apply a consistent Fade transition to all slides: Transitions tab → Fade → Apply to All</div></li>
+        </ul>
+      </div>
+      <div class="score-box"><strong>Full marks tip:</strong> Write SUMIF formula + AVERAGEIF formula + Conditional Formatting steps + PivotTable steps for Part A. For Part B: Slide Master setup + Home slide hyperlinks + Action Button on Slide Master + transitions. Explain each clearly.</div>
+    </div>
+  </div>
+
+  <!-- Scenario 2 -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">Scenario 2: Student Gradebook / HR Employee Data</div>
+      <div class="q-meta"><span class="scenario-badge">14 Marks</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="answer-section">
+        <h4>The Question</h4>
+        <div class="answer-text">A teacher has student data: Roll No (A), Name (B), Midterm Score (C, weighted 40%), Final Exam Score (D, weighted 60%), Attendance % (E). Weights are stored in H1 (0.4) and H2 (0.6).</div>
+      </div>
+      <div class="part-label">Part A — Excel (7 Marks)</div>
+      <div class="answer-section">
+        <h4>Formula 1: Weighted Grade in Column F</h4>
+        <div class="code-block">=(C2*$H$1)+(D2*$H$2)
+→ Multiplies midterm by 40% weight (H1) and final by 60% weight (H2)
+→ Absolute reference ($H$1) ensures weights don't shift when formula is copied down
+→ Drag formula from F2 to F30 for all students</div>
+      </div>
+      <div class="answer-section">
+        <h4>Formula 2: Pass/Fail in Column G using IF + AND</h4>
+        <div class="code-block">=IF(AND(F2>=60, E2>=75), "Pass", "Fail")
+→ AND checks BOTH conditions must be true:
+   F2>=60 → weighted grade 60 or above
+   E2>=75 → attendance 75% or above
+→ IF both true → "Pass", otherwise → "Fail"</div>
+      </div>
+      <div class="answer-section">
+        <h4>Formula 3: Count of Pass/Fail students</h4>
+        <div class="code-block">=COUNTIF(G2:G30, "Pass")   → Number who passed
+=COUNTIF(G2:G30, "Fail")   → Number who failed</div>
+      </div>
+      <div class="answer-section">
+        <h4>Formula 4: Class Average using AVERAGE</h4>
+        <div class="code-block">=AVERAGE(F2:F30)  → Class average of weighted grades
+=MAX(F2:F30)     → Highest score
+=MIN(F2:F30)     → Lowest score</div>
+      </div>
+      <div class="answer-section">
+        <h4>Conditional Formatting: Highlight failing students red</h4>
+        <div class="code-block">Select G2:G30 → Home → Conditional Formatting → Highlight Cell Rules
+→ Equal To → "Fail" → Red fill → OK</div>
+      </div>
+      <div class="part-label">Part B — PowerPoint (7 Marks)</div>
+      <div class="answer-section">
+        <h4>Academic Report Presentation — 5 Slides</h4>
+        <ul class="step-list">
+          <li><div class="step-num">1</div><div><strong>Slide Master:</strong> View → Slide Master → add school logo, choose professional theme (blue/white), set consistent font. Add slide number placeholder via Insert → Slide Number → Apply to All. Close Slide Master.</div></li>
+          <li><div class="step-num">2</div><div><strong>Slide 1 — Home Slide:</strong> "Student Performance Report 2025". Buttons: Overview | Grade Distribution | Pass/Fail Analysis | Recommendations. Link each to its slide.</div></li>
+          <li><div class="step-num">3</div><div><strong>Slide 2 — Overview:</strong> Summary table (copy from Excel), class average, highest and lowest scorer highlighted.</div></li>
+          <li><div class="step-num">4</div><div><strong>Slide 3 — Grade Distribution:</strong> Insert Bar Chart (from Excel) showing grade ranges — A, B, C, D, F. Add animation: Wipe effect, one bar at a time (On Click).</div></li>
+          <li><div class="step-num">5</div><div><strong>Slide 4 — Pass/Fail:</strong> Pie Chart (only 2 categories — Pass vs Fail) + COUNTIF numbers. Use SmartArt for recommendations.</div></li>
+          <li><div class="step-num">6</div><div><strong>Slide 5 — Recommendations:</strong> 4-5 bullet points using SmartArt List.</div></li>
+          <li><div class="step-num">7</div><div><strong>Return Button on ALL slides:</strong> View → Slide Master → Insert Action Button (Home) → Hyperlink to First Slide → Close Master.</div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Formula quick ref -->
+  <div class="q-card" onclick="toggle(this)">
+    <div class="q-header">
+      <div class="q-title">⚡ Quick Formula Reference — Memorize These for Any Scenario</div>
+      <div class="q-meta"><span class="badge b5">Must Know</span></div>
+      <div class="chevron">▼</div>
+    </div>
+    <div class="q-body">
+      <div class="code-block">SUMIF:     =SUMIF(range, criteria, sum_range)
+           =SUMIF(A:A, "Marketing", C:C)
+
+SUMIFS:    =SUMIFS(sum_range, range1, crit1, range2, crit2)
+           =SUMIFS(C:C, A:A, "Marketing", C:C, ">500")
+           ⚠ Note: sum_range comes FIRST in SUMIFS
+
+AVERAGEIF: =AVERAGEIF(range, criteria, average_range)
+           =AVERAGEIF(B:B, "Technical", C:C)
+
+COUNTIF:   =COUNTIF(range, criteria)
+           =COUNTIF(E:E, "Escalated")
+
+IF + AND:  =IF(AND(C2>60, D2>75), "Pass", "Fail")
+
+VLOOKUP:   =VLOOKUP(value, table, col_index, FALSE)
+           =VLOOKUP("Apple", A1:C10, 2, FALSE)
+
+INDEX+MATCH: =INDEX(B1:B10, MATCH("Apple", A1:A10, 0))
+
+NETWORKDAYS: =NETWORKDAYS(start_date, end_date)
+             → Working days excluding weekends
+
+DATEDIF:   =DATEDIF(A1, B1, "Y")  → Years between dates
+           =DATEDIF(A1, B1, "M")  → Months between dates
+
+TRIM:      =TRIM("  Hello World  ") → "Hello World"
+TEXT:      =TEXT(A1, "DD/MM/YYYY") → Formats date as text
+ROUND:     =ROUND(12.567, 2)       → 12.57</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function showModule(id) {
+  document.querySelectorAll('.module-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggle(card) {
+  card.classList.toggle('open');
+}
+</script>
+</body>
+</html>
